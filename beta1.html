@@ -9,17 +9,16 @@
 <body>
   <script>
     var audio = new AudioContext();
-    var osc = audio.createOscillator();
     function createOscillator(freq, waveform) {
-
+      window.osc = audio.createOscillator();
         osc.frequency.value = freq;
         osc.type = waveform;
         osc.connect(audio.destination);
         osc.start(0);
     }
     function stopOsc() {
-      osc.stop(0);
-            osc.disconnect(audio.destination);
+      window.osc.stop(0);
+            window.osc.disconnect(audio.destination);
     }
     function DoOnKeyDown(e){
     var keynum;
