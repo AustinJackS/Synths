@@ -8,9 +8,9 @@
   </head>
 <body>
   <script>
-    var audio = new AudioContext(); 
+    var audio = new AudioContext();
+    var osc = audio.createOscillator();
     function createOscillator(freq, waveform) {
-        var osc = audio.createOscillator();
 
         osc.frequency.value = freq;
         osc.type = waveform;
