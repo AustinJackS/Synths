@@ -1,4 +1,20 @@
 <html>
 <body>
+  <script>
+    var audio = AudioContext(); 
+    function createOscillator(freq, waveform, stoptime) {
+        var osc = audio.createOscillator();
+
+        osc.frequency.value = freq;
+        osc.type = waveform;
+        osc.connect(audio.destination);
+        osc.start(0);
+
+        setTimeout(function() {
+            osc.stop(0);
+            osc.disconnect(audio.destination);
+        }, stoptime*1000)
+    }
+    </script>
 </body>
 </html>
