@@ -9,7 +9,7 @@
 <body>
   <script>
     var audio = new AudioContext(); 
-    function createOscillator(freq, waveform, stoptime) {
+    function createOscillator(freq, waveform) {
         var osc = audio.createOscillator();
 
         osc.frequency.value = freq;
@@ -31,7 +31,12 @@
     }
 
     keyprsd = String.fromCharCode(keynum);
+      if(keyprsd=='A') {
+        createOscillator(440, sine);
+      }
   }
+    document.body.onkeydown=DoOnKeyDown;
+    document.body.onkeyup=stopOsc;
     </script>
 </body>
 </html>
