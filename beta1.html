@@ -16,26 +16,19 @@
         osc.connect(audio.destination);
         osc.start(0);
     }
-    function stopOsc() {
-      window.osc.stop(0);
-            window.osc.disconnect(audio.destination);
-    }
     function DoOnKeyDown(e){
     var keynum;
 
-    if(window.event) { // IE                    
-      keynum = e.keyCode;
-    } else if(e.which){ // Netscape/Firefox/Opera                   
-      keynum = e.which;
-    }
-
     keyprsd = String.fromCharCode(keynum);
-      if(keyprsd=='a') {
+      if(keynum == 13) {
         createOscillator(440, "sine");
+      }
+      if(keynum==32) 
+        window.osc.stop(0);
+            window.osc.disconnect(audio.destination);
       }
   }
     document.body.onkeypress=DoOnKeyDown;
-    document.body.onkeyup=stopOsc;
     </script>
 </body>
 </html>
