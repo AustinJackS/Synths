@@ -18,7 +18,11 @@
     }
     function DoOnKeyDown(e){
     var keynum;
-
+      if(window.event) { // IE                    
+      keynum = e.keyCode;
+    } else if(e.which){ // Netscape/Firefox/Opera                   
+      keynum = e.which;
+    }
     keyprsd = String.fromCharCode(keynum);
       if(keynum == 13) {
         createOscillator(440, "sine");
